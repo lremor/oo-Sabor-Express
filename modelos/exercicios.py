@@ -205,3 +205,94 @@ print()
 print(pessoa1.saudacao)
 print(pessoa2.saudacao)
 print(pessoa3.saudacao)
+print()
+
+#----------------------------------------
+
+# Exercicios 01 ao 07
+
+#----------------------------------------
+
+class ContaBancaria:
+    
+    def __init__(self, titular='', saldo=''):
+        self.titular = titular
+        self.saldo = saldo
+        self._ativo = False
+
+    def __str__(self):
+        return f'O titular da conta é {self.titular} e o saldo é R${self.saldo}'
+    
+    @classmethod
+    def ativar_conta(cls, conta):
+        conta._ativo = True
+        print(f'Status conta bancaria: ativo')
+
+
+titular1 = ContaBancaria('Luis', '15.000')
+titular2 = ContaBancaria('Liana', '10.000')
+
+titular3 = ContaBancaria('Rita', '20.000')
+
+print(f"Antes de ativar: Conta ativa? {titular3._ativo}")
+ContaBancaria.ativar_conta(titular3)
+print(f"Depois de ativar: Conta ativa? {titular3._ativo}")
+
+print()
+print(titular1)
+print(titular2)
+
+
+class ContaBancariaPythonica:
+    def __init__(self, titular, saldo):
+        self._titular = titular
+        self._saldo = saldo
+        self._ativo = False
+
+    @property
+    def titular(self):
+        return self._titular
+
+    @property
+    def saldo(self):
+        return self._saldo
+
+    @property
+    def ativo(self):
+        return self._ativo
+
+conta4 = ContaBancariaPythonica("Fernanda", 1500)
+print()
+print(f"Titular da conta 4: {conta4.titular}")
+print()
+
+class ClienteBanco:
+    def __init__(self, nome='', cpf='', conta='', senha=''):
+        self.nome = nome
+        self.cpf = cpf
+        self.conta = conta
+        self.senha = senha
+        self._status = False
+
+    def __str__(self):
+        return f'Dados da conta:\nNome:{self.nome}\nCPF:{self.cpf}\nConta:{self.conta}\nSenha:{self.senha}\nStatus:{self._status}'
+    
+    @classmethod
+    def status_conta(cls, conta):
+        conta._status = True
+    @classmethod
+    def criar_conta(cls, titular, saldo_inicial):
+        conta = ContaBancariaPythonica(titular, saldo_inicial)
+        return conta
+    
+dados1 = ClienteBanco('Luis', '024.450.280-05', '21456000-0', 'gg123')
+dados2 = ClienteBanco('Liana', '125.320.288-00', '3452300-0', 'drika123')
+
+ClienteBanco.status_conta(dados2)
+
+print(dados1)
+print()
+print(dados2)
+print()
+conta_cliente1 = ClienteBanco.criar_conta("Ana", 2000)
+print(f"Conta de {conta_cliente1.titular} criada com saldo inicial de R${conta_cliente1.saldo}")
