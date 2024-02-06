@@ -161,51 +161,51 @@
 #----------------------------------------
 # 03. Property
 
-class Pessoa:
+# class Pessoa:
 
-    def __init__(self, nome='', idade=0, profissao=''):
-        self.nome = nome
-        self.idade = idade
-        self.profissao = profissao
+#     def __init__(self, nome='', idade=0, profissao=''):
+#         self.nome = nome
+#         self.idade = idade
+#         self.profissao = profissao
 
-    def __str__(self):
-        if self.profissao:
-            return f'{self.nome} | {self.idade} anos | {self.profissao}'
-        else:
-            return f'{self.nome} | {self.idade} anos | Sem profissão'
+#     def __str__(self):
+#         if self.profissao:
+#             return f'{self.nome} | {self.idade} anos | {self.profissao}'
+#         else:
+#             return f'{self.nome} | {self.idade} anos | Sem profissão'
         
-    @property
-    def saudacao(self):
-        if self.profissao:
-            return f'Sou {self.nome}, trabalho como {self.profissao}'
-        else:
-            return f'Sou {self.nome}, sem profissão'
+#     @property
+#     def saudacao(self):
+#         if self.profissao:
+#             return f'Sou {self.nome}, trabalho como {self.profissao}'
+#         else:
+#             return f'Sou {self.nome}, sem profissão'
     
-    def aniversario(self):
-        self.idade += 1
+#     def aniversario(self):
+#         self.idade += 1
 
-pessoa1 = Pessoa(nome='Alice', idade=25, profissao='Engenheira')
-pessoa2 = Pessoa(nome='Luiza', idade=30, profissao='Desenvolvedor')
-pessoa3 = Pessoa(nome='Jaque', idade=22)
+# pessoa1 = Pessoa(nome='Alice', idade=25, profissao='Engenheira')
+# pessoa2 = Pessoa(nome='Luiza', idade=30, profissao='Desenvolvedor')
+# pessoa3 = Pessoa(nome='Jaque', idade=22)
 
-print("Informações Iniciais:")
-print(pessoa1)
-print(pessoa2)
-print(pessoa3)
-print()
+# print("Informações Iniciais:")
+# print(pessoa1)
+# print(pessoa2)
+# print(pessoa3)
+# print()
 
-pessoa1.aniversario()
-pessoa3.aniversario()
+# pessoa1.aniversario()
+# pessoa3.aniversario()
 
-print("Informações após aniversário:")
-print(pessoa1)
-print(pessoa3)
-print()
+# print("Informações após aniversário:")
+# print(pessoa1)
+# print(pessoa3)
+# print()
 
-print(pessoa1.saudacao)
-print(pessoa2.saudacao)
-print(pessoa3.saudacao)
-print()
+# print(pessoa1.saudacao)
+# print(pessoa2.saudacao)
+# print(pessoa3.saudacao)
+# print()
 
 #----------------------------------------
 
@@ -213,86 +213,115 @@ print()
 
 #----------------------------------------
 
-class ContaBancaria:
+# class ContaBancaria:
     
-    def __init__(self, titular='', saldo=''):
-        self.titular = titular
-        self.saldo = saldo
-        self._ativo = False
+#     def __init__(self, titular='', saldo=''):
+#         self.titular = titular
+#         self.saldo = saldo
+#         self._ativo = False
+
+#     def __str__(self):
+#         return f'O titular da conta é {self.titular} e o saldo é R${self.saldo}'
+    
+#     @classmethod
+#     def ativar_conta(cls, conta):
+#         conta._ativo = True
+#         print(f'Status conta bancaria: ativo')
+
+
+# titular1 = ContaBancaria('Luis', '15.000')
+# titular2 = ContaBancaria('Liana', '10.000')
+
+# titular3 = ContaBancaria('Rita', '20.000')
+
+# print(f"Antes de ativar: Conta ativa? {titular3._ativo}")
+# ContaBancaria.ativar_conta(titular3)
+# print(f"Depois de ativar: Conta ativa? {titular3._ativo}")
+
+# print()
+# print(titular1)
+# print(titular2)
+
+
+# class ContaBancariaPythonica:
+#     def __init__(self, titular, saldo):
+#         self._titular = titular
+#         self._saldo = saldo
+#         self._ativo = False
+
+#     @property
+#     def titular(self):
+#         return self._titular
+
+#     @property
+#     def saldo(self):
+#         return self._saldo
+
+#     @property
+#     def ativo(self):
+#         return self._ativo
+
+# conta4 = ContaBancariaPythonica("Fernanda", 1500)
+# print()
+# print(f"Titular da conta 4: {conta4.titular}")
+# print()
+
+# class ClienteBanco:
+#     def __init__(self, nome='', cpf='', conta='', senha=''):
+#         self.nome = nome
+#         self.cpf = cpf
+#         self.conta = conta
+#         self.senha = senha
+#         self._status = False
+
+#     def __str__(self):
+#         return f'Dados da conta:\nNome:{self.nome}\nCPF:{self.cpf}\nConta:{self.conta}\nSenha:{self.senha}\nStatus:{self._status}'
+    
+#     @classmethod
+#     def status_conta(cls, conta):
+#         conta._status = True
+#     @classmethod
+#     def criar_conta(cls, titular, saldo_inicial):
+#         conta = ContaBancariaPythonica(titular, saldo_inicial)
+#         return conta
+    
+# dados1 = ClienteBanco('Luis', '024.450.280-05', '21456000-0', 'gg123')
+# dados2 = ClienteBanco('Liana', '125.320.288-00', '3452300-0', 'drika123')
+
+# ClienteBanco.status_conta(dados2)
+
+# print(dados1)
+# print()
+# print(dados2)
+# print()
+# conta_cliente1 = ClienteBanco.criar_conta("Ana", 2000)
+# print(f"Conta de {conta_cliente1.titular} criada com saldo inicial de R${conta_cliente1.saldo}")
+
+#----------------------------------------
+
+# 04. Importando classe e composição
+# Exercicios 01 ao 08
+
+#----------------------------------------
+
+class Livro:
+    def __init__(self,  titulo, autor, ano_publicacao):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano_publicacao = ano_publicacao
+        self._disponivel = True
 
     def __str__(self):
-        return f'O titular da conta é {self.titular} e o saldo é R${self.saldo}'
+        return f'O livro {self.titulo}, de {self.ano_publicacao}, tem como autor {self.autor}. Status:{self._disponivel}'
     
     @classmethod
-    def ativar_conta(cls, conta):
-        conta._ativo = True
-        print(f'Status conta bancaria: ativo')
+    def emprestar(cls, titulo):
+         titulo._disponivel = False
 
+livro1 = Livro('O caso dos dez negrinhos', 'Agatha Christie', '1939')
+livro2 = Livro('Um estudo em vermelho', 'Sir Arthur Conan Doyle', '1888')
 
-titular1 = ContaBancaria('Luis', '15.000')
-titular2 = ContaBancaria('Liana', '10.000')
+Livro.emprestar(livro1)
 
-titular3 = ContaBancaria('Rita', '20.000')
-
-print(f"Antes de ativar: Conta ativa? {titular3._ativo}")
-ContaBancaria.ativar_conta(titular3)
-print(f"Depois de ativar: Conta ativa? {titular3._ativo}")
-
-print()
-print(titular1)
-print(titular2)
-
-
-class ContaBancariaPythonica:
-    def __init__(self, titular, saldo):
-        self._titular = titular
-        self._saldo = saldo
-        self._ativo = False
-
-    @property
-    def titular(self):
-        return self._titular
-
-    @property
-    def saldo(self):
-        return self._saldo
-
-    @property
-    def ativo(self):
-        return self._ativo
-
-conta4 = ContaBancariaPythonica("Fernanda", 1500)
-print()
-print(f"Titular da conta 4: {conta4.titular}")
-print()
-
-class ClienteBanco:
-    def __init__(self, nome='', cpf='', conta='', senha=''):
-        self.nome = nome
-        self.cpf = cpf
-        self.conta = conta
-        self.senha = senha
-        self._status = False
-
-    def __str__(self):
-        return f'Dados da conta:\nNome:{self.nome}\nCPF:{self.cpf}\nConta:{self.conta}\nSenha:{self.senha}\nStatus:{self._status}'
-    
-    @classmethod
-    def status_conta(cls, conta):
-        conta._status = True
-    @classmethod
-    def criar_conta(cls, titular, saldo_inicial):
-        conta = ContaBancariaPythonica(titular, saldo_inicial)
-        return conta
-    
-dados1 = ClienteBanco('Luis', '024.450.280-05', '21456000-0', 'gg123')
-dados2 = ClienteBanco('Liana', '125.320.288-00', '3452300-0', 'drika123')
-
-ClienteBanco.status_conta(dados2)
-
-print(dados1)
-print()
-print(dados2)
-print()
-conta_cliente1 = ClienteBanco.criar_conta("Ana", 2000)
-print(f"Conta de {conta_cliente1.titular} criada com saldo inicial de R${conta_cliente1.saldo}")
+print(livro1)
+print(livro2)
