@@ -317,11 +317,16 @@ class Livro:
     @classmethod
     def emprestar(cls, titulo):
          titulo.disponivel = False
-
+    
     @staticmethod
     def verificar_disponibilidade(ano):
         livros_disponiveis = [livro for livro in Livro.livros if livro.ano_publicacao == ano and livro.disponivel]
-        return livros_disponiveis
+        # Ajustar a string de saída
+        if livros_disponiveis:
+            livros_disponiveis_str = ", ".join(livro.__str__() for livro in livros_disponiveis)
+        else:
+            livros_disponiveis_str = "Nenhum livro disponível"
+        return livros_disponiveis_str
 
 livro1 = Livro('O caso dos dez negrinhos', 'Agatha Christie', 1939)
 livro2 = Livro('Um estudo em vermelho', 'Sir Arthur Conan Doyle', 1888)
