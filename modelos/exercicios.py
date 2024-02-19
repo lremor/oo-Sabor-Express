@@ -309,19 +309,36 @@ class Livro:
         self.titulo = titulo
         self.autor = autor
         self.ano_publicacao = ano_publicacao
-        self._disponivel = True
+        self.disponivel = True
 
     def __str__(self):
-        return f'O livro {self.titulo}, de {self.ano_publicacao}, tem como autor {self.autor}. Status:{self._disponivel}'
+        return f'O livro {self.titulo}, de {self.ano_publicacao}, tem como autor {self.autor}. Status:{self.disponivel} '
     
     @classmethod
     def emprestar(cls, titulo):
-         titulo._disponivel = False
+         titulo.disponivel = False
 
-livro1 = Livro('O caso dos dez negrinhos', 'Agatha Christie', '1939')
-livro2 = Livro('Um estudo em vermelho', 'Sir Arthur Conan Doyle', '1888')
+    @staticmethod
+    def verificar_disponibilidade(ano):
+        livros_disponiveis = [livro for livro in Livro.livros if livro.ano_publicacao == ano and livro.disponivel]
+        return livros_disponiveis
+
+livro1 = Livro('O caso dos dez negrinhos', 'Agatha Christie', 1939)
+livro2 = Livro('Um estudo em vermelho', 'Sir Arthur Conan Doyle', 1888)
+livro3 = Livro("Python Cookbook", "Samuel Developer", 2020)
+Livro.livros = [livro1, livro2, livro3]
 
 Livro.emprestar(livro1)
 
 print(livro1)
 print(livro2)
+print(livro3)
+
+livro_biblioteca = Livro("Python in Practice", "Emily Coder", 2021)
+print(f"Antes de emprestar o livro {livro_biblioteca.titulo}  | Livro disponível? {livro_biblioteca.disponivel}")
+Livro.emprestar(livro_biblioteca)
+print(f"Depois de emprestar o livro {livro_biblioteca.titulo}  | Livro disponível? {livro_biblioteca.disponivel}")
+
+ano_especifico = 2020
+livros_disponiveis_ano = Livro.verificar_disponibilidade(ano_especifico)
+print(f"Livros disponíveis em {ano_especifico}: {livros_disponiveis_ano}")
