@@ -367,3 +367,19 @@
 
 # 02. Polimorfismo
 # Exercicios 01 ao 06
+
+from abc import ABC, abstractmethod
+
+class Veiculo(ABC):
+    def __init__(self,classe,modelo):
+         self.classe = classe
+         self.modelo = modelo
+         self._ligado = False
+
+    def __str__(self):
+         status = "ligado" if self._ligado else "desligado"
+         return f'Marca: {self.classe} | Modelo: {self.modelo} | Estado: {status}'
+
+    @abstractmethod
+    def ligar(self):
+     pass

@@ -11,3 +11,13 @@
 
 # 02. Polimorfismo
 # Exercicios 01 ao 06
+
+from exercicios import Veiculo
+
+class Carro(Veiculo):
+     def __init__(self,classe,modelo,cor):
+         super().__init__(classe,modelo)
+         self.cor = cor
+
+     def ligar(self):
+        print(f"O carro {self.modelo} está ligado.")

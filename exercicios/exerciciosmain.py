@@ -18,3 +18,18 @@
 
 # 02. Polimorfismo
 # Exercicios 01 ao 06
+
+from exercicios2 import Carro
+
+carro1 = Carro(classe="Ford", modelo="Focus", cor="Preto")
+carro2 = Carro(classe="Chevrolet", modelo="Cruze", cor="Prata")
+carro3 = Carro(classe="Honda", modelo="Civic", cor="Vermelho")
+carro3.ligar()
+
+def main():
+    print(f"Carro 1: {carro1.classe} {carro1.modelo}, Cor: {carro1.cor}")
+    print(f"Carro 2: {carro2.classe} {carro2.modelo}, Cor: {carro2.cor}")
+    print(f"Carro 3: {carro3.classe} {carro3.modelo}, Cor: {carro3.cor}")
+
+if __name__ == '__main__':
+     main()
