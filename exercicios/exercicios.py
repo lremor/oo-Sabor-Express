@@ -351,16 +351,19 @@
 # 01. Herança
 # Exercicios 01 ao 09
 
-class Veiculo:
-    def __init__(self,classe,modelo):
-        self.classe = classe
-        self.modelo = modelo
-        self._ligado = False
+# class Veiculo:
+#     def __init__(self,classe,modelo):
+#         self.classe = classe
+#         self.modelo = modelo
+#         self._ligado = False
 
-    def __str__(self):
-        status = "ligado" if self._ligado else "desligado"
-        return f'Marca: {self.classe} | Modelo: {self.modelo} | Estado: {status}'
+#     def __str__(self):
+#         status = "ligado" if self._ligado else "desligado"
+#         return f'Marca: {self.classe} | Modelo: {self.modelo} | Estado: {status}'
     
-    @classmethod
-    def ligar(cls, modelo):
-         modelo._ligado = True
+#     @classmethod
+#     def ligar(cls, modelo):
+#          modelo._ligado = True
+
+# 02. Polimorfismo
+# Exercicios 01 ao 06
